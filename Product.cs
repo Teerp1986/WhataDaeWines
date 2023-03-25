@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WhataDae__Wine_App
 {
-    public class Product 
+    public class Product : OrderItem
     {
         public string? ProductId { get; set; }
         public string? ProductName { get; set; }

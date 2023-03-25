@@ -179,8 +179,8 @@ namespace WhataDae__Wine_App
             products.Add(product9);
 
 
-            Console.WriteLine($"                          \n\nFantastic! You're like Butter...... You're on a roll!");
-            Console.WriteLine(" \nHere are the wines we currently have available for the season:\n");
+            Console.WriteLine($"\n\n                             Fantastic! You're like Butter...... You're on a roll!");
+            Console.WriteLine(" \n\nHere are the wines we currently have available for the season:\n");
             Console.WriteLine("Red Wine Options");
             Console.WriteLine("Price: $12.50");
             Console.WriteLine("Cabernet");
@@ -282,7 +282,7 @@ namespace WhataDae__Wine_App
         {
             //order confirmation if return true, information will be displayed with completed order information. //
             Console.WriteLine("                          You've made some excellent wine selections!\n");
-            Console.WriteLine("\nPlease Confirm your information and wine order above by typing Y or N.");
+            Console.WriteLine("\n\nPlease Confirm your information and wine order above by typing Y or N.");
             
             if (Console.ReadLine().ToUpper() == "Y")
             {
@@ -308,7 +308,7 @@ namespace WhataDae__Wine_App
             Console.WriteLine($"Phone: {customer.Phone}");
             Console.WriteLine($"Address: {customer.StreetAddress} {customer.City} {customer.State} {customer.PostalCode}");
             
-            Console.WriteLine("\nWines Ordered and Discounts Applied:\n");
+            Console.WriteLine("\n\nWines Ordered and Discounts Applied:\n");
 
             decimal? grandTotalBeforeDiscount = 0m;
             decimal? grandTotalAfterDiscount = 0m;
