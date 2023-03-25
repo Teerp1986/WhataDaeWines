@@ -45,7 +45,7 @@ namespace WhataDae__Wine_App
             else
             {
                 Console.WriteLine("Sorry,You must be 21 or over to continue.");
-                Console.WriteLine("press 0 or " + "any key to exit.");
+                Console.WriteLine("Press 0 or " + "any key to exit.");
                 var input = Console.ReadLine();
                 if (input == "0")
                 {
@@ -185,7 +185,7 @@ namespace WhataDae__Wine_App
             Console.WriteLine("Price: $12.50");
             Console.WriteLine("Cabernet");
             Console.WriteLine("Malbec");
-            Console.WriteLine("Cabernet\n");
+            Console.WriteLine("Merlot\n");
 
             Console.WriteLine("White Wine Options");
             Console.WriteLine("Price: $10.75");
@@ -195,7 +195,7 @@ namespace WhataDae__Wine_App
 
             Console.WriteLine("Rose' Wine Options");
             Console.WriteLine("Price: $8.25");
-            Console.WriteLine("Sweet Rose' Mascato");
+            Console.WriteLine("Sweet Rose' Moscato");
             Console.WriteLine("Sirah");
             Console.WriteLine("Zinfandel\n");
             Console.WriteLine("                                            WE HAVE GREAT NEWS!\n");
@@ -282,7 +282,7 @@ namespace WhataDae__Wine_App
         {
             //order confirmation if return true, information will be displayed with completed order information. //
             Console.WriteLine("                          You've made some excellent wine selections!\n");
-            Console.WriteLine("\n\nPlease Confirm your information and wine order above by typing Y or N.");
+            Console.WriteLine("\n\nPlease confirm your information and wine order above by typing Y or N.");
             
             if (Console.ReadLine().ToUpper() == "Y")
             {
@@ -292,7 +292,7 @@ namespace WhataDae__Wine_App
             else
             {
                 Console.WriteLine("Did you forget something?");
-                Console.WriteLine("Your age was previously Verified.\n");
+                Console.WriteLine("Your age was previously verified.\n");
                 Console.WriteLine("Now worries...How about a RE-DO! Re-enter Information and Wine order.");
                 return false;
             }
@@ -319,15 +319,14 @@ namespace WhataDae__Wine_App
                 Console.WriteLine($"Quantity: {orderItem.Quantity}");
                 Console.WriteLine($"Discount Per Bottle: {String.Format("{0:C}", orderItem.DiscountPerLineItem)}");
 
-                decimal? totalDiscountPerLineItem =  orderItem.TotalDiscountPerLineItem / orderItem.Quantity;
-                grandTotalBeforeDiscount += orderItem.TotalPricePerLineItem;
-                grandTotalAfterDiscount -= orderItem.TotalPricePerLineItem - orderItem.TotalDiscountPerLineItem;
+                decimal? totalDiscountPerLineItem = orderItem.DiscountPerLineItem * orderItem.Quantity;
+                grandTotalBeforeDiscount = orderItem.TotalPricePerLineItem;
+                grandTotalAfterDiscount += orderItem.TotalPricePerLineItem - orderItem.DiscountPerLineItem;
                 
                 
             }
 
-            Console.WriteLine($"\n\nGrand Total: {String.Format("{0:C}", grandTotalBeforeDiscount)}");
-            Console.WriteLine($"Grand Total with Discounts: {String.Format("{0:C}", grandTotalAfterDiscount)}"); 
+            Console.WriteLine($"\nGrand Total: {String.Format("{0:C}", grandTotalAfterDiscount)}"); 
 
             Console.WriteLine("\n\n                                           Scroll up to see entire order details\n\n");
 
