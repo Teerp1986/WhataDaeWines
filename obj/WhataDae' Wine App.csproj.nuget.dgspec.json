@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tonika Price\\source\\repos\\WhataDae' Wine App\\WhataDae' Wine App.csproj": {}
+    "C:\\git\\WhataDaeWines\\WhataDae' Wine App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tonika Price\\source\\repos\\WhataDae' Wine App\\WhataDae' Wine App.csproj": {
+    "C:\\git\\WhataDaeWines\\WhataDae' Wine App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tonika Price\\source\\repos\\WhataDae' Wine App\\WhataDae' Wine App.csproj",
+        "projectUniqueName": "C:\\git\\WhataDaeWines\\WhataDae' Wine App.csproj",
         "projectName": "WhataDae' Wine App",
-        "projectPath": "C:\\Users\\Tonika Price\\source\\repos\\WhataDae' Wine App\\WhataDae' Wine App.csproj",
-        "packagesPath": "C:\\Users\\Tonika Price\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tonika Price\\source\\repos\\WhataDae' Wine App\\obj\\",
+        "projectPath": "C:\\git\\WhataDaeWines\\WhataDae' Wine App.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\WhataDaeWines\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Tonika Price\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

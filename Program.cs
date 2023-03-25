@@ -91,11 +91,7 @@ namespace WhataDae__Wine_App
 
         public static List<OrderItem> GetOrderItems()
         {
-            Product product = new();
-
             List<Product> products = new();
-            
-
 
             Product product1 = new()
             {
@@ -178,8 +174,6 @@ namespace WhataDae__Wine_App
             };
             products.Add(product9);
 
-
-
             Console.WriteLine(" \n\nHere are the wines we have available for the current season:\n\n");
             Console.WriteLine("Red Wine Options");
             Console.WriteLine("Price: $15.50\n");
@@ -210,15 +204,15 @@ namespace WhataDae__Wine_App
 
             var orderItems = new List<OrderItem>();
 
-            foreach (var Product in products)
+            foreach (var product in products)
             {
-
-                Console.WriteLine("Enter the quantity for {0}:", Product.ProductName);
+                Console.WriteLine("Enter the quantity for {0}:", product.ProductName);
 
                 OrderItem orderItem = new()
                 {
-                    Product = new Product()
+                    Product = product
                 };
+
                 bool validEntry = false;
 
                 do
@@ -246,64 +240,42 @@ namespace WhataDae__Wine_App
 
                 if (orderItem.Quantity > 0)
                 {
-
-                    orderItem.Product.ProductId = product.ProductId;
-                    orderItem.Product.Price = product.Price;
                     orderItem.PricePerLineItem = product.Price * orderItem.Quantity;
 
                     if (orderItem.Quantity > 0 && orderItem.Quantity < 10)
                     {
                         orderItem.DiscountPerLineItem = 0;
-
-
                     }
                     else if (orderItem.Quantity >= 10 && orderItem.Quantity < 25)
                     {
                         orderItem.DiscountPerLineItem = 1.10m;
-
                     }
-
                     else if (orderItem.Quantity >= 25 && orderItem.Quantity < 50)
                     {
                         orderItem.DiscountPerLineItem = 2.25m;
-
                     }
-
                     else if (orderItem.Quantity >= 50)
                     {
                         orderItem.DiscountPerLineItem = 5.50m;
-
                     }
-
 
                     orderItem.TotalDiscountPerLineItem = orderItem.DiscountPerLineItem * orderItem.Quantity;
 
                     orderItem.TotalPricePerLineItem = orderItem.PricePerLineItem - orderItem.TotalDiscountPerLineItem;
 
                     orderItems.Add(orderItem);
-
                 }
-
             }
-
-           
-
-
-            
            
             return orderItems;
-
         }
 
         public static bool ConfirmOrder()
         {
-         
             Console.WriteLine("\n\nPlease Confirm your information entered above by typing Y or N");
-
             
             if (Console.ReadLine().ToUpper() == "Y")
             {
-                
                 Console.WriteLine("Thanks!");
                 return true;
             }
@@ -312,19 +284,12 @@ namespace WhataDae__Wine_App
                 Console.WriteLine("Missing Something?");
                 Console.WriteLine("Let's take another look..");
                 return false;
-               
             }
-            
-            
         }
-
-
 
         public static void GetOutput(Customer customer, List<OrderItem> orderItems)
         {
-            
             Console.WriteLine("\n\n\n\n                                               ****Information Confirmed****");
-
 
             Console.WriteLine($"\nCustomer Name: {customer.FirstName} {customer.LastName}");
      
@@ -333,34 +298,23 @@ namespace WhataDae__Wine_App
             Console.WriteLine($"Address: {customer.StreetAddress} {customer.City} {customer.State} {customer.PostalCode}");
             
             Console.WriteLine("Wines Ordered and Dicounts Applied:");
-            decimal? grandTotalAfterDiscount = 0m;
+
             decimal? grandTotalBeforeDiscount = 0m;
+            decimal? grandTotalAfterDiscount = 0m;
+
             foreach (var orderItem in orderItems)
             {
-                grandTotalAfterDiscount += orderItem.TotalDiscountPerLineItem;
+                Console.WriteLine($"\nWine: {orderItem.Product.ProductName}");
+                Console.WriteLine($"Price: {String.Format("{0:C}", orderItem.PricePerLineItem)}");
+                Console.WriteLine($"Quantity: {orderItem.Quantity}");
+                Console.WriteLine($"Discount Per Bottle: {String.Format("{0:C}", orderItem.DiscountPerLineItem)}");
+
                 grandTotalBeforeDiscount += orderItem.TotalPricePerLineItem + orderItem.TotalDiscountPerLineItem;
-                Console.WriteLine($" {orderItem.PricePerLineItem}\n");
-                Console.WriteLine($" {orderItem.DiscountPerLineItem}\n");
+                grandTotalAfterDiscount += orderItem.TotalDiscountPerLineItem;
             }
 
-
-            Console.WriteLine($"Grand Total: {grandTotalBeforeDiscount}");
-            Console.WriteLine($"Grand Total with Discounts: {grandTotalAfterDiscount}");
-
+            Console.WriteLine($"\n\nGrand Total: {String.Format("{0:C}", grandTotalBeforeDiscount)}");
+            Console.WriteLine($"Grand Total with Discounts: {String.Format("{0:C}", grandTotalAfterDiscount)}");
         }
-
-
     }
-
-    
 }
-
-
-
-
-
-
-
-
-
-

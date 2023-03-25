@@ -13,3 +13,18 @@ C:\Users\Tonika Price\source\repos\WhataDae' Wine App\obj\Debug\net6.0\refint\Wh
 C:\Users\Tonika Price\source\repos\WhataDae' Wine App\obj\Debug\net6.0\WhataDae' Wine App.pdb
 C:\Users\Tonika Price\source\repos\WhataDae' Wine App\obj\Debug\net6.0\WhataDae' Wine App.genruntimeconfig.cache
 C:\Users\Tonika Price\source\repos\WhataDae' Wine App\obj\Debug\net6.0\ref\WhataDae' Wine App.dll
+C:\git\WhataDaeWines\bin\Debug\net6.0\WhataDae' Wine App.exe
+C:\git\WhataDaeWines\bin\Debug\net6.0\WhataDae' Wine App.deps.json
+C:\git\WhataDaeWines\bin\Debug\net6.0\WhataDae' Wine App.runtimeconfig.json
+C:\git\WhataDaeWines\bin\Debug\net6.0\WhataDae' Wine App.dll
+C:\git\WhataDaeWines\bin\Debug\net6.0\WhataDae' Wine App.pdb
+C:\git\WhataDaeWines\obj\Debug\net6.0\WhataDae' Wine App.csproj.AssemblyReference.cache
+C:\git\WhataDaeWines\obj\Debug\net6.0\WhataDae' Wine App.GeneratedMSBuildEditorConfig.editorconfig
+C:\git\WhataDaeWines\obj\Debug\net6.0\WhataDae' Wine App.AssemblyInfoInputs.cache
+C:\git\WhataDaeWines\obj\Debug\net6.0\WhataDae' Wine App.AssemblyInfo.cs
+C:\git\WhataDaeWines\obj\Debug\net6.0\WhataDae' Wine App.csproj.CoreCompileInputs.cache
+C:\git\WhataDaeWines\obj\Debug\net6.0\WhataDae' Wine App.dll
+C:\git\WhataDaeWines\obj\Debug\net6.0\refint\WhataDae' Wine App.dll
+C:\git\WhataDaeWines\obj\Debug\net6.0\WhataDae' Wine App.pdb
+C:\git\WhataDaeWines\obj\Debug\net6.0\WhataDae' Wine App.genruntimeconfig.cache
+C:\git\WhataDaeWines\obj\Debug\net6.0\ref\WhataDae' Wine App.dll
