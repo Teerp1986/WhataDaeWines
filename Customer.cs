@@ -20,6 +20,6 @@ namespace WhataDae__Wine_App
         public string City { get; set; }
         public string State { get; set; }
         public int PostalCode { get; set; }
- 
+
     }
 }

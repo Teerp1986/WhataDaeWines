@@ -10,18 +10,21 @@ namespace WhataDae__Wine_App
         
         static void Main(string[] args)
         {
-            Console.WriteLine("****************************************Welcome to Whata Dae' Wines! **********************************\n\n");
+            Console.WriteLine("*************************************  Welcome to Whata Dae' Wines!   ********************************\n\n");
+            Console.WriteLine("                            We are one of the finest Local Wine Vinyards around!\n");
+            Console.WriteLine("             We create and serve homemade, refined, and delicious wines only using fresh ingredients!\n\n");
 
 
-
+            //Age Verification feature. Only allows 21 and over to continue through the app//
             Console.WriteLine("Enter your DOB: MM/DD/YYYY");
             DateTime DOB = DateTime.Parse(Console.ReadLine());
 
             if (DOB < DateTime.Now.AddYears(-1 * LegalAge))
             {
-                Console.WriteLine("\nAge Verification Successful!\n");
-                Console.WriteLine("Please proceed with building your order.");
+                Console.WriteLine("\n                                         Age Verification Successful!");
+                Console.WriteLine("                                   Please proceed with building your wine order.");
 
+                // master loop feature  to re-enter in information if order confirmation returnes false "N".//
                 var orderConfirmed = false;
                 while (!orderConfirmed)
                 {
@@ -38,7 +41,7 @@ namespace WhataDae__Wine_App
                 
                 
 
-            }
+            }// program will exit if ager verification returns false//
             else
             {
                 Console.WriteLine("Sorry,You must be 21 or over to continue.");
@@ -53,32 +56,33 @@ namespace WhataDae__Wine_App
 
         }
 
+        //customer class that recives basic information. Input iformation will be diplayed after confirmation initiated responding "Y"//
         public static Customer GetCustomer()
         {
 
-            Console.WriteLine("Let's get started with some basic information!\n\n");
+            Console.WriteLine("\n\n\nLet's get started with some basic information!\n\n");
 
             Customer customer = new Customer();
 
-            Console.WriteLine("\nPlease enter your Last Name:");
+            Console.WriteLine("Enter your Last Name:");
             customer.LastName = Console.ReadLine();
 
-            Console.WriteLine("\nPlease enter your First Name:");
+            Console.WriteLine("\nEnter your First Name:");
             customer.FirstName = Console.ReadLine();
 
-            Console.WriteLine("\nEnter email:");
+            Console.WriteLine("\nEmail:");
             customer.Email = Console.ReadLine();
 
-            Console.WriteLine("\nEnter phone: e.g 5025551234");
+            Console.WriteLine("\nPhone Number: e.g 5025551234");
             customer.Phone = Console.ReadLine();
 
-            Console.WriteLine("\nEnter Street Address: (123 Main St): ");
+            Console.WriteLine("\nEnter Street Address:  (e.g. 123 Main St): ");
             customer.StreetAddress = Console.ReadLine();
 
             Console.WriteLine("\nEnter City:");
             customer.City = Console.ReadLine();
 
-            Console.WriteLine("\nEnter State: (KY)");
+            Console.WriteLine("\nEnter State: (e.g KY)");
             customer.State = Console.ReadLine();
 
             Console.WriteLine("\nEnter ZIP Code");
@@ -88,7 +92,7 @@ namespace WhataDae__Wine_App
 
             return customer;
         }
-
+        //product class with List feature represents Order selection with pricing displayed.
         public static List<OrderItem> GetOrderItems()
         {
             List<Product> products = new();
@@ -97,7 +101,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Red Wine",
                 ProductName = "Cabernet",
-                Price = 15.50m,
+                Price = 12.50m,
 
             };
             products.Add(product1);
@@ -106,7 +110,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Red Wine",
                 ProductName = "Malbec",
-                Price = 15.50m,
+                Price = 12.50m,
 
             };
             products.Add(product2);
@@ -115,7 +119,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Red Wine",
                 ProductName = "Merlot",
-                Price = 15.50m,
+                Price = 12.50m,
 
             };
             products.Add(product3);
@@ -124,7 +128,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "White Wine",
                 ProductName = "Chardonnay",
-                Price = 12.75m,
+                Price = 10.75m,
 
             };
             products.Add(product4);
@@ -133,7 +137,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "White Wine",
                 ProductName = "Pinot Grigio",
-                Price = 12.75m,
+                Price = 10.75m,
 
             };
             products.Add(product5);
@@ -142,7 +146,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "White Wine",
                 ProductName = "Riesling",
-                Price = 12.75m,
+                Price = 10.75m,
 
             };
             products.Add(product6);
@@ -150,8 +154,8 @@ namespace WhataDae__Wine_App
             Product product7 = new ()
             {
                 ProductId = "Rose Wine",
-                ProductName = "Moscato",
-                Price = 10.25m,
+                ProductName = "Sweet Rose' Moscato",
+                Price = 8.25m,
 
             };
             products.Add(product7);
@@ -160,7 +164,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Rose Wine",
                 ProductName = "Sirah",
-                Price = 10.25m,
+                Price = 8.25m,
 
             };
             products.Add(product8);
@@ -169,38 +173,40 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Rose Wine",
                 ProductName = "Zinfandel",
-                Price = 10.25m,
+                Price = 8.25m,
 
             };
             products.Add(product9);
 
-            Console.WriteLine(" \n\nHere are the wines we have available for the current season:\n\n");
+
+            Console.WriteLine($"                          \n\nFantastic! You're like Butter...... You're on a roll!");
+            Console.WriteLine(" \nHere are the wines we currently have available for the season:\n");
             Console.WriteLine("Red Wine Options");
-            Console.WriteLine("Price: $15.50\n");
+            Console.WriteLine("Price: $12.50");
             Console.WriteLine("Cabernet");
             Console.WriteLine("Malbec");
-            Console.WriteLine("Cabernet\n\n");
+            Console.WriteLine("Cabernet\n");
 
             Console.WriteLine("White Wine Options");
-            Console.WriteLine("Price: $12.75\n");
+            Console.WriteLine("Price: $10.75");
             Console.WriteLine("Chardonnay");
             Console.WriteLine("Riesling");
-            Console.WriteLine("Pinot Grigio\n\n");
+            Console.WriteLine("Pinot Grigio\n");
 
             Console.WriteLine("Rose' Wine Options");
-            Console.WriteLine("Price: $10.25\n");
-            Console.WriteLine("Mascato");
+            Console.WriteLine("Price: $8.25");
+            Console.WriteLine("Sweet Rose' Mascato");
             Console.WriteLine("Sirah");
             Console.WriteLine("Zinfandel\n");
+            Console.WriteLine("                                            WE HAVE GREAT NEWS!\n");
+            Console.WriteLine("    *******************************       Discounts NOW Available!       ***********************************\n");
 
-            Console.WriteLine("******************************* Discounts NOW Available! ***************************************\n\n");
+            Console.WriteLine("$0.15 OFF per Bottle when you buy 10 or more.");
+            Console.WriteLine("$0.25 OFF per Bottle when you buy 25 or more.");
+            Console.WriteLine("$0.50 OFF per Bottle when you buy 50 or more.\n");
 
-            Console.WriteLine("$1.00 OFF per Bottle when you buy 6 or more.");
-            Console.WriteLine("$1.25 OFF per Bottle when you buy 12 or more.");
-            Console.WriteLine("$2.00 OFF per Bottle when you buy 24 or more.\n");
-
-
-            Console.WriteLine("Please type in the quantity for each item.   If you do not wish purchase a product pleasee add 0. \n");
+            //user is propmted for each wine. Enter in quantity or "0". Depending on what quantity determines pricing. must follow through entire prompt.//
+            Console.WriteLine("Please type in the quantity for each item.  If you do not wish purchase a product please add 0 for item quantity. \n\n");
 
             var orderItems = new List<OrderItem>();
 
@@ -237,7 +243,9 @@ namespace WhataDae__Wine_App
                     }
 
                 } while (validEntry == false);
-
+                
+                //Calculations for disounts to be appplied to quantity of order items.//
+                
                 if (orderItem.Quantity > 0)
                 {
                     orderItem.PricePerLineItem = product.Price * orderItem.Quantity;
@@ -248,15 +256,15 @@ namespace WhataDae__Wine_App
                     }
                     else if (orderItem.Quantity >= 10 && orderItem.Quantity < 25)
                     {
-                        orderItem.DiscountPerLineItem = 1.10m;
+                        orderItem.DiscountPerLineItem = 0.15m;
                     }
                     else if (orderItem.Quantity >= 25 && orderItem.Quantity < 50)
                     {
-                        orderItem.DiscountPerLineItem = 2.25m;
+                        orderItem.DiscountPerLineItem = 0.25m;
                     }
                     else if (orderItem.Quantity >= 50)
                     {
-                        orderItem.DiscountPerLineItem = 5.50m;
+                        orderItem.DiscountPerLineItem = 0.50m;
                     }
 
                     orderItem.TotalDiscountPerLineItem = orderItem.DiscountPerLineItem * orderItem.Quantity;
@@ -272,21 +280,24 @@ namespace WhataDae__Wine_App
 
         public static bool ConfirmOrder()
         {
-            Console.WriteLine("\n\nPlease Confirm your information entered above by typing Y or N");
+            //order confirmation if return true, information will be displayed with completed order information. //
+            Console.WriteLine("                          You've made some excellent wine selections!\n");
+            Console.WriteLine("\nPlease Confirm your information and wine order above by typing Y or N.");
             
             if (Console.ReadLine().ToUpper() == "Y")
             {
-                Console.WriteLine("Thanks!");
+                Console.WriteLine("\n\n                                 Thankyou!");
                 return true;
             }
             else
             {
-                Console.WriteLine("Missing Something?");
-                Console.WriteLine("Let's take another look..");
+                Console.WriteLine("Did you forget something?");
+                Console.WriteLine("Your age was previously Verified.\n");
+                Console.WriteLine("Now worries...How about a RE-DO! Re-enter Information and Wine order.");
                 return false;
             }
         }
-
+        // complete order and customer information output, total order wit dicounts, quanities and grand totals.//
         public static void GetOutput(Customer customer, List<OrderItem> orderItems)
         {
             Console.WriteLine("\n\n\n\n                                               ****Information Confirmed****");
@@ -297,11 +308,10 @@ namespace WhataDae__Wine_App
             Console.WriteLine($"Phone: {customer.Phone}");
             Console.WriteLine($"Address: {customer.StreetAddress} {customer.City} {customer.State} {customer.PostalCode}");
             
-            Console.WriteLine("Wines Ordered and Dicounts Applied:");
+            Console.WriteLine("\nWines Ordered and Discounts Applied:\n");
 
             decimal? grandTotalBeforeDiscount = 0m;
             decimal? grandTotalAfterDiscount = 0m;
-
             foreach (var orderItem in orderItems)
             {
                 Console.WriteLine($"\nWine: {orderItem.Product.ProductName}");
@@ -309,12 +319,27 @@ namespace WhataDae__Wine_App
                 Console.WriteLine($"Quantity: {orderItem.Quantity}");
                 Console.WriteLine($"Discount Per Bottle: {String.Format("{0:C}", orderItem.DiscountPerLineItem)}");
 
-                grandTotalBeforeDiscount += orderItem.TotalPricePerLineItem + orderItem.TotalDiscountPerLineItem;
-                grandTotalAfterDiscount += orderItem.TotalDiscountPerLineItem;
+                decimal? totalDiscountPerLineItem =  orderItem.TotalDiscountPerLineItem / orderItem.Quantity;
+                grandTotalBeforeDiscount += orderItem.TotalPricePerLineItem;
+                grandTotalAfterDiscount -= orderItem.TotalPricePerLineItem - orderItem.TotalDiscountPerLineItem;
+                
+                
             }
 
             Console.WriteLine($"\n\nGrand Total: {String.Format("{0:C}", grandTotalBeforeDiscount)}");
-            Console.WriteLine($"Grand Total with Discounts: {String.Format("{0:C}", grandTotalAfterDiscount)}");
+            Console.WriteLine($"Grand Total with Discounts: {String.Format("{0:C}", grandTotalAfterDiscount)}"); 
+
+            Console.WriteLine("\n\n                                           Scroll up to see entire order details\n\n");
+
+           
+
+            Console.WriteLine("\n         A Representative will contact you in the next 15 minutes to retrieve and submit a payment method from you.");
+
+            Console.WriteLine("\n\n                  Thankyou for choosing WhataDae' Wines!      We appreciate your buisness!\n\n");
+
+            Console.WriteLine("                                     ****************      CHEERS!!      ****************\n\n");
+
+            
         }
     }
 }
