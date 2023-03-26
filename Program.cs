@@ -264,12 +264,12 @@ namespace WhataDae__Wine_App
                     }
                     else if (orderItem.Quantity >= 50)
                     {
-                        orderItem.DiscountPerLineItem = 0.50m;
+                        orderItem.DiscountPerLineItem = 1.00m;
                     }
 
                     orderItem.TotalDiscountPerLineItem = orderItem.DiscountPerLineItem * orderItem.Quantity;
 
-                    orderItem.TotalPricePerLineItem = orderItem.PricePerLineItem - orderItem.TotalDiscountPerLineItem;
+                    orderItem.TotalPricePerLineItem = orderItem.PricePerLineItem - orderItem.DiscountPerLineItem;
 
                     orderItems.Add(orderItem);
                 }
@@ -286,7 +286,7 @@ namespace WhataDae__Wine_App
             
             if (Console.ReadLine().ToUpper() == "Y")
             {
-                Console.WriteLine("\n\n                                 Thankyou!");
+                Console.WriteLine("\n\n                                 Thank You!");
                 return true;
             }
             else
@@ -310,8 +310,11 @@ namespace WhataDae__Wine_App
             
             Console.WriteLine("\n\nWines Ordered and Discounts Applied:\n");
 
+            
+            
             decimal? grandTotalBeforeDiscount = 0m;
             decimal? grandTotalAfterDiscount = 0m;
+
             foreach (var orderItem in orderItems)
             {
                 Console.WriteLine($"\nWine: {orderItem.Product.ProductName}");
@@ -319,20 +322,23 @@ namespace WhataDae__Wine_App
                 Console.WriteLine($"Quantity: {orderItem.Quantity}");
                 Console.WriteLine($"Discount Per Bottle: {String.Format("{0:C}", orderItem.DiscountPerLineItem)}");
 
-                decimal? totalDiscountPerLineItem = orderItem.DiscountPerLineItem * orderItem.Quantity;
-                grandTotalBeforeDiscount = orderItem.TotalPricePerLineItem;
-                grandTotalAfterDiscount += orderItem.TotalPricePerLineItem - orderItem.DiscountPerLineItem;
                 
+               
+                grandTotalBeforeDiscount += orderItem.TotalPricePerLineItem;
+                grandTotalAfterDiscount += orderItem.TotalPricePerLineItem - orderItem.TotalDiscountPerLineItem;
+
                 
             }
 
-            Console.WriteLine($"\nGrand Total: {String.Format("{0:C}", grandTotalAfterDiscount)}"); 
+            Console.WriteLine($"\nTotal Before Discounts: {String.Format("{0:C}", grandTotalBeforeDiscount)}");
+            Console.WriteLine($"\nGrand Total: {String.Format("{0:C}", grandTotalAfterDiscount)}");
+            
 
             Console.WriteLine("\n\n                                           Scroll up to see entire order details\n\n");
 
            
 
-            Console.WriteLine("\n         A Representative will contact you in the next 15 minutes to retrieve and submit a payment method from you.");
+            Console.WriteLine("\n         A representative will contact you in the next 15 minutes to retrieve and submit a payment method from you.");
 
             Console.WriteLine("\n\n                  Thankyou for choosing WhataDae' Wines!      We appreciate your buisness!\n\n");
 
