@@ -14,6 +14,8 @@ namespace WhataDae__Wine_App
         public decimal? DiscountPerLineItem { get; set; }
         public decimal? TotalPricePerLineItem { get; set; }
         public decimal? TotalDiscountPerLineItem { get; set; }
+        public decimal? TotalDiscounts { get; set; }
+
     }
 }
 

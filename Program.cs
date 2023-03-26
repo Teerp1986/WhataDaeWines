@@ -201,9 +201,9 @@ namespace WhataDae__Wine_App
             Console.WriteLine("                                            WE HAVE GREAT NEWS!\n");
             Console.WriteLine("    *******************************       Discounts NOW Available!       ***********************************\n");
 
-            Console.WriteLine("$0.15 OFF per Bottle when you buy 10 or more.");
-            Console.WriteLine("$0.25 OFF per Bottle when you buy 25 or more.");
-            Console.WriteLine("$0.50 OFF per Bottle when you buy 50 or more.\n");
+            Console.WriteLine("$1.15 OFF per Bottle when you buy 10 or more.");
+            Console.WriteLine("$2.00 OFF per Bottle when you buy 25 or more.");
+            Console.WriteLine("$3.50 OFF per Bottle when you buy 50 or more.\n");
 
             //user is propmted for each wine. Enter in quantity or "0". Depending on what quantity determines pricing. must follow through entire prompt.//
             Console.WriteLine("Please type in the quantity for each item.  If you do not wish purchase a product please add 0 for item quantity. \n\n");
@@ -256,15 +256,15 @@ namespace WhataDae__Wine_App
                     }
                     else if (orderItem.Quantity >= 10 && orderItem.Quantity < 25)
                     {
-                        orderItem.DiscountPerLineItem = 0.15m;
+                        orderItem.DiscountPerLineItem = 1.15m;
                     }
                     else if (orderItem.Quantity >= 25 && orderItem.Quantity < 50)
                     {
-                        orderItem.DiscountPerLineItem = 0.25m;
+                        orderItem.DiscountPerLineItem = 2.00m;
                     }
                     else if (orderItem.Quantity >= 50)
                     {
-                        orderItem.DiscountPerLineItem = 1.00m;
+                        orderItem.DiscountPerLineItem = 3.50m;
                     }
 
                     orderItem.TotalDiscountPerLineItem = orderItem.DiscountPerLineItem * orderItem.Quantity;
@@ -274,7 +274,7 @@ namespace WhataDae__Wine_App
                     orderItems.Add(orderItem);
                 }
             }
-           
+
             return orderItems;
         }
 
@@ -303,36 +303,36 @@ namespace WhataDae__Wine_App
             Console.WriteLine("\n\n\n\n                                               ****Information Confirmed****");
 
             Console.WriteLine($"\nCustomer Name: {customer.FirstName} {customer.LastName}");
-     
+
             Console.WriteLine($"Email: {customer.Email}");
             Console.WriteLine($"Phone: {customer.Phone}");
             Console.WriteLine($"Address: {customer.StreetAddress} {customer.City} {customer.State} {customer.PostalCode}");
-            
-            Console.WriteLine("\n\nWines Ordered and Discounts Applied:\n");
 
-            
-            
+            Console.WriteLine("\n\nOrder Details:\n");
+
+
+            decimal? totalDiscounts = 0m;
             decimal? grandTotalBeforeDiscount = 0m;
             decimal? grandTotalAfterDiscount = 0m;
+            
 
             foreach (var orderItem in orderItems)
             {
                 Console.WriteLine($"\nWine: {orderItem.Product.ProductName}");
-                Console.WriteLine($"Price: {String.Format("{0:C}", orderItem.PricePerLineItem)}");
-                Console.WriteLine($"Quantity: {orderItem.Quantity}");
-                Console.WriteLine($"Discount Per Bottle: {String.Format("{0:C}", orderItem.DiscountPerLineItem)}");
-
-                
                
+                Console.WriteLine($"Quantity: {orderItem.Quantity}");
+
+
+                totalDiscounts += orderItem.TotalDiscountPerLineItem;
                 grandTotalBeforeDiscount += orderItem.TotalPricePerLineItem;
                 grandTotalAfterDiscount += orderItem.TotalPricePerLineItem - orderItem.TotalDiscountPerLineItem;
 
-                
+
             }
 
-            Console.WriteLine($"\nTotal Before Discounts: {String.Format("{0:C}", grandTotalBeforeDiscount)}");
+            Console.WriteLine($"\nTotal Discounts: {String.Format("{0:C}", totalDiscounts)}");
             Console.WriteLine($"\nGrand Total: {String.Format("{0:C}", grandTotalAfterDiscount)}");
-            
+
 
             Console.WriteLine("\n\n                                           Scroll up to see entire order details\n\n");
 
