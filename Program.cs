@@ -101,7 +101,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Red Wine",
                 ProductName = "Cabernet",
-                Price = 12.50m,
+                Price = 12.00m,
 
             };
             products.Add(product1);
@@ -110,7 +110,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Red Wine",
                 ProductName = "Malbec",
-                Price = 12.50m,
+                Price = 12.00m,
 
             };
             products.Add(product2);
@@ -119,7 +119,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Red Wine",
                 ProductName = "Merlot",
-                Price = 12.50m,
+                Price = 12.00m,
 
             };
             products.Add(product3);
@@ -128,7 +128,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "White Wine",
                 ProductName = "Chardonnay",
-                Price = 10.75m,
+                Price = 10.00m,
 
             };
             products.Add(product4);
@@ -137,7 +137,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "White Wine",
                 ProductName = "Pinot Grigio",
-                Price = 10.75m,
+                Price = 10.00m,
 
             };
             products.Add(product5);
@@ -146,7 +146,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "White Wine",
                 ProductName = "Riesling",
-                Price = 10.75m,
+                Price = 10.00m,
 
             };
             products.Add(product6);
@@ -155,7 +155,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Rose Wine",
                 ProductName = "Sweet Rose' Moscato",
-                Price = 8.25m,
+                Price = 8.00m,
 
             };
             products.Add(product7);
@@ -164,7 +164,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Rose Wine",
                 ProductName = "Sirah",
-                Price = 8.25m,
+                Price = 8.00m,
 
             };
             products.Add(product8);
@@ -173,7 +173,7 @@ namespace WhataDae__Wine_App
             {
                 ProductId = "Rose Wine",
                 ProductName = "Zinfandel",
-                Price = 8.25m,
+                Price = 8.00m,
 
             };
             products.Add(product9);
@@ -182,28 +182,28 @@ namespace WhataDae__Wine_App
             Console.WriteLine($"\n\n                             Fantastic! You're like Butter...... You're on a roll!");
             Console.WriteLine(" \n\nHere are the wines we currently have available for the season:\n");
             Console.WriteLine("Red Wine Options");
-            Console.WriteLine("Price: $12.50");
+            Console.WriteLine("Price: $12.00");
             Console.WriteLine("Cabernet");
             Console.WriteLine("Malbec");
             Console.WriteLine("Merlot\n");
 
             Console.WriteLine("White Wine Options");
-            Console.WriteLine("Price: $10.75");
+            Console.WriteLine("Price: $10.00");
             Console.WriteLine("Chardonnay");
             Console.WriteLine("Riesling");
             Console.WriteLine("Pinot Grigio\n");
 
             Console.WriteLine("Rose' Wine Options");
-            Console.WriteLine("Price: $8.25");
+            Console.WriteLine("Price: $8.00");
             Console.WriteLine("Sweet Rose' Moscato");
             Console.WriteLine("Sirah");
             Console.WriteLine("Zinfandel\n");
             Console.WriteLine("                                            WE HAVE GREAT NEWS!\n");
             Console.WriteLine("    *******************************       Discounts NOW Available!       ***********************************\n");
 
-            Console.WriteLine("$1.15 OFF per Bottle when you buy 10 or more.");
+            Console.WriteLine("$1.00 OFF per Bottle when you buy 10 or more.");
             Console.WriteLine("$2.00 OFF per Bottle when you buy 25 or more.");
-            Console.WriteLine("$3.50 OFF per Bottle when you buy 50 or more.\n");
+            Console.WriteLine("$3.00 OFF per Bottle when you buy 50 or more.\n");
 
             //user is propmted for each wine. Enter in quantity or "0". Depending on what quantity determines pricing. must follow through entire prompt.//
             Console.WriteLine("Please type in the quantity for each item.  If you do not wish purchase a product please add 0 for item quantity. \n\n");
@@ -256,7 +256,7 @@ namespace WhataDae__Wine_App
                     }
                     else if (orderItem.Quantity >= 10 && orderItem.Quantity < 25)
                     {
-                        orderItem.DiscountPerLineItem = 1.15m;
+                        orderItem.DiscountPerLineItem = 1.00m;
                     }
                     else if (orderItem.Quantity >= 25 && orderItem.Quantity < 50)
                     {
@@ -264,12 +264,13 @@ namespace WhataDae__Wine_App
                     }
                     else if (orderItem.Quantity >= 50)
                     {
-                        orderItem.DiscountPerLineItem = 3.50m;
+                        orderItem.DiscountPerLineItem = 3.00m;
                     }
 
                     orderItem.TotalDiscountPerLineItem = orderItem.DiscountPerLineItem * orderItem.Quantity;
 
                     orderItem.TotalPricePerLineItem = orderItem.PricePerLineItem - orderItem.DiscountPerLineItem;
+                    orderItem.SaleTotal = orderItem.DiscountPerLineItem * orderItem.Quantity;
 
                     orderItems.Add(orderItem);
                 }
@@ -323,9 +324,9 @@ namespace WhataDae__Wine_App
                 Console.WriteLine($"Quantity: {orderItem.Quantity}");
 
 
-                totalDiscounts += orderItem.TotalDiscountPerLineItem;
+                totalDiscounts += orderItem.SaleTotal;
                 grandTotalBeforeDiscount += orderItem.TotalPricePerLineItem;
-                grandTotalAfterDiscount += orderItem.TotalPricePerLineItem - orderItem.TotalDiscountPerLineItem;
+                grandTotalAfterDiscount += orderItem.PricePerLineItem - orderItem.SaleTotal;
 
 
             }
@@ -338,9 +339,9 @@ namespace WhataDae__Wine_App
 
            
 
-            Console.WriteLine("\n         A representative will contact you in the next 15 minutes to retrieve and submit a payment method from you.");
+            Console.WriteLine("\n         A representative will contact you within the next 15 minutes to obtain a payment method from you.");
 
-            Console.WriteLine("\n\n                  Thankyou for choosing WhataDae' Wines!      We appreciate your buisness!\n\n");
+            Console.WriteLine("\n\n                  Thank you for choosing WhataDae' Wines!      We appreciate your buisness!\n\n");
 
             Console.WriteLine("                                     ****************      CHEERS!!      ****************\n\n");
 
